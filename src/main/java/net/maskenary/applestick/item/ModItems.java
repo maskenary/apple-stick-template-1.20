@@ -12,12 +12,15 @@ import net.minecraft.util.Identifier;
 public class ModItems {
     public static final Item APPLESTICK = Registry.register(Registries.ITEM,
             new Identifier(AppleStick.MOD_ID, "applestick"), new Item(new FabricItemSettings()));
+    public static final Item CHARGED_APPLESTICK = Registry.register(Registries.ITEM,
+            new Identifier(AppleStick.MOD_ID, "charged_applestick"), new Item(new FabricItemSettings()));
 
     public static void registerModItems(){
         AppleStick.LOGGER.info("Registering Items for apple-stick");
         //add entries in ModItemGroups too
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
             entries.add(APPLESTICK);
+            entries.add(CHARGED_APPLESTICK);
         });
     }
 

@@ -16,6 +16,7 @@ public class ModItemGroups {
             .displayName(Text.translatable("itemgroup.applestick"))
             .entries((context, entries) -> {
                 entries.add(ModItems.APPLESTICK);
+                entries.add(ModItems.CHARGED_APPLESTICK);
             })
             .build();
 
