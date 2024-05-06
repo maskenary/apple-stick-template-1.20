@@ -1,6 +1,5 @@
 package net.maskenary.applestick.item;
 
-import com.mojang.datafixers.kinds.App;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.maskenary.applestick.AppleStick;
 import net.minecraft.item.ItemGroup;

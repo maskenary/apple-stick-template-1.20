@@ -1,27 +1,26 @@
 package net.maskenary.applestick.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.maskenary.applestick.AppleStick;
+import net.maskenary.applestick.item.custom.ChargedAppleStickItem;
+import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
     public static final Item APPLESTICK = Registry.register(Registries.ITEM,
-            new Identifier(AppleStick.MOD_ID, "applestick"), new Item(new FabricItemSettings()));
+            new Identifier(AppleStick.MOD_ID, "applestick"), new Item(new FabricItemSettings().food(
+                    new FoodComponent.Builder().hunger(5).saturationModifier(0.3f).build()
+            )));
     public static final Item CHARGED_APPLESTICK = Registry.register(Registries.ITEM,
-            new Identifier(AppleStick.MOD_ID, "charged_applestick"), new Item(new FabricItemSettings()));
+            new Identifier(AppleStick.MOD_ID, "charged_applestick"), new ChargedAppleStickItem(new FabricItemSettings().food(
+                    new FoodComponent.Builder().hunger(20).saturationModifier(0.3f).build()
+            )));
 
     public static void registerModItems(){
         AppleStick.LOGGER.info("Registering Items for apple-stick");
-        //add entries in ModItemGroups too
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
-            entries.add(APPLESTICK);
-            entries.add(CHARGED_APPLESTICK);
-        });
     }
 
 }
